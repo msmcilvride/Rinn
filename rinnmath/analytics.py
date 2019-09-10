@@ -3,13 +3,13 @@ import statistics as st
 # analytics
 
 
-def test_for_levels(test, attacker, defender, attack, defense, iterations=1000, min_lvl=1, max_lvl=10):
+def level_test(test, character, ability, iterations=1000, min_lvl=1, max_lvl=10):
     """
     Performs the specified test for each of the specified levels.
 
     test = the test function to be used
-    attacker = the attacking character
-    defender = the defending character
+    character =
+    ability =
     iterations = the number of times to run the test per level
     min_lvl = the lowest level to test
     max_lvl = the highest level to test
@@ -28,19 +28,17 @@ def test_for_levels(test, attacker, defender, attack, defense, iterations=1000, 
     }
 
     # lower vitality by 1 for the for loop
-    attacker.vitality = min_lvl - 1
-    defender.vitality = min_lvl - 1
+    character.vitality = min_lvl - 1
 
     for lvl in range(max_lvl):
-        attacker.vitality += 1
-        defender.vitality += 1
+        character.vitality += 1
 
         # perform the test
-        results = test(attacker, defender, attack, defense, iterations=iterations)
+        results = test(character, ability, iterations=iterations)
 
         # record aggregates
         # TODO: make this a function
-        data['level'].append(attacker.vitality)
+        data['level'].append(character.vitality)
         data['mean'].append(st.mean(results))
         data['median'].append(int(st.median(results)))
         data['mode'].append(st.mode(results))

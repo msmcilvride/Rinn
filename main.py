@@ -5,28 +5,21 @@ import rinnmath.analytics as an
 import rinnmath.stat_tests as st
 
 # character parameters
-x = cc.Villager()
-y = cc.Villager()
+char = cc.Villager()
 
-# attack/defense parameters
-attack = {
+# ability parameters
+ability = {
     'initial_successes': 1,
-    'initial_damage': 3,
+    'initial_output': 1,
     'additional_successes': 1,
-    'additional_damage': 2
-}
-
-defense = {
-    'initial_successes': 1,
-    'initial_negated': 1,
-    'additional_successes': 2,
-    'additional_negated': 1
+    'additional_output': 1
 }
 
 # laboratory
-data = an.test_for_levels(st.generic_round, x, y, attack, defense, iterations=10000)
+test_name = '1Fast'
+data = an.level_test(st.generic_ability_test, char, ability, iterations=10000)
 df = pd.DataFrame(data)
-df.style.hide_index()
+df.to_csv('outputs/' + test_name + '.csv', index=False)
 
 # TODO
 # Roll for generic abilities, not attack v defense. Only look at the raw damage done/mitigated in a matrix.
