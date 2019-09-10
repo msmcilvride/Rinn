@@ -16,9 +16,10 @@ ability = {
 }
 
 # laboratory
+test_name = '1Fast'
 data = an.level_test(st.generic_ability_test, char, ability, iterations=10000)
 df = pd.DataFrame(data)
-df.style.hide_index()
+df.to_csv('outputs/' + test_name + '.csv', index=False)
 
 # TODO
 # Roll for generic abilities, not attack v defense. Only look at the raw damage done/mitigated in a matrix.
