@@ -1,31 +1,6 @@
 import rinnmath.game_functions as gf
 
 
-def generic_round(attacker, defender, attack, defense, iterations=1000):
-    """
-    Tests a generic attack against a generic defense.
-
-    attacker = the character performing the melee attack
-    defender = the character defending with a avoid
-    iterations = the number of times to run the test
-    """
-    results = []
-    for _ in range(iterations):
-        damage = gf.generic_attack(attacker,
-                                   initial_successes=attack['initial_successes'],
-                                   initial_damage=attack['initial_damage'],
-                                   additional_successes=attack['additional_successes'],
-                                   additional_damage=attack['additional_damage'])
-        damage = gf.generic_defense(defender, damage,
-                                    initial_successes=defense['initial_successes'],
-                                    initial_negated=defense['initial_negated'],
-                                    additional_successes=defense['additional_successes'],
-                                    additional_negated=defense['additional_negated'])
-        results.append(damage)
-
-    return results
-
-
 def generic_ability_test(character, ability, iterations=1000):
     """
     Tests a generic attack against a generic defense.
@@ -38,11 +13,11 @@ def generic_ability_test(character, ability, iterations=1000):
     """
     results = []
     for _ in range(iterations):
-        output = gf.generic_attack(character,
+        output = gf.generic_ability(character,
                                    initial_successes=ability['initial_successes'],
-                                   initial_damage=ability['initial_output'],
+                                   initial_output=ability['initial_output'],
                                    additional_successes=ability['additional_successes'],
-                                   additional_damage=ability['additional_output'])
+                                   additional_output=ability['additional_output'])
         results.append(output)
 
     return results
