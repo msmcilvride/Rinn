@@ -23,8 +23,19 @@ defense = {
     'additional_negated': 1
 }
 
+ability = {
+    'initial_successes': 1,
+    'initial_output': 1,
+    'additional_successes': 1,
+    'additional_output': 1
+}
+
 # laboratory
-data = an.test_for_levels(st.generic_round, x, y, attack, defense, iterations=10000)
+# data = an.test_for_levels(st.generic_round, x, y, attack, defense, iterations=10000)
+# df = pd.DataFrame(data)
+# df.style.hide_index()
+
+data = an.level_test(st.generic_ability_test, x, ability, iterations=10000)
 df = pd.DataFrame(data)
 df.style.hide_index()
 
