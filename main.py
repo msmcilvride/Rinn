@@ -7,6 +7,8 @@ import rinnmath.stat_tests as st
 # character parameters
 char = cc.Villager()
 
+char.body = 3
+
 # ability parameters
 ability = {
     'initial_successes': 1,
@@ -15,11 +17,16 @@ ability = {
     'additional_output': 1
 }
 
+ability_name = str(ability['initial_successes']) +\
+               str(ability['initial_output']) +\
+               str(ability['additional_successes']) +\
+               str(ability['additional_output'])
+
 # laboratory
-test_name = '1Fast'
 data = an.level_test(st.generic_ability_test, char, ability, iterations=10000)
 df = pd.DataFrame(data)
-df.to_csv('outputs/' + test_name + '.csv', index=False)
+df.to_csv('outputs/' + ability_name + '.csv', index=False)
 
 # TODO
-# Roll for generic abilities, not attack v defense. Only look at the raw damage done/mitigated in a matrix.
+# create two outputs: a single csv for each result set, and a single csv for all means, modes, etc
+# Automate the process of testing each ability variant and saving the output as a csv

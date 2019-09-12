@@ -27,7 +27,7 @@ def roll_d6(num, stat):
 
     # calculate successes
     for result in results:
-        if result >= stat:
+        if result <= stat:
             successes += 1
         else:
             failures += 1

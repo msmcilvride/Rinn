@@ -1,7 +1,7 @@
 import rinnmath.helper_functions as hf
 
 
-def generic_ability(character, initial_successes, initial_output, additional_successes, additional_output):
+def generic_body_ability(character, initial_successes, initial_output, additional_successes, additional_output):
     """
     Performs a generic ability and returns the output.
 

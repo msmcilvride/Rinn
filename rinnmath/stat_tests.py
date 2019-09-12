@@ -13,11 +13,11 @@ def generic_ability_test(character, ability, iterations=1000):
     """
     results = []
     for _ in range(iterations):
-        output = gf.generic_ability(character,
-                                   initial_successes=ability['initial_successes'],
-                                   initial_output=ability['initial_output'],
-                                   additional_successes=ability['additional_successes'],
-                                   additional_output=ability['additional_output'])
+        output = gf.generic_body_ability(character,
+                                         initial_successes=ability['initial_successes'],
+                                         initial_output=ability['initial_output'],
+                                         additional_successes=ability['additional_successes'],
+                                         additional_output=ability['additional_output'])
         results.append(output)
 
     return results
